@@ -1,8 +1,9 @@
 html,
 body {
   height: 100%;
-  background-color: #000;
   font-family: 'Ubuntu', sans-serif;
+  background-color: var(--var-bgcolor);
+  color: var(--var-fontcolor);
 }
 
 .wrapper {
