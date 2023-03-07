@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title data-lang="home__page-title">Portfolio</title>
   <link rel="stylesheet" href="css/style.min.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,700&display=swap"
@@ -15,64 +16,72 @@
 
 <body>
   <div class="wrapper">
+
     <header class="header">
+      <div class="container">
 
+        <nav class="nav">
 
-      <nav class="nav">
+          <ul class="menu__list menu-left ">
 
-        <ul class="menu__list menu-left ">
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#">
+                <img class="logo" id="myImage" src="images/github_light.png" alt="GitHub">
+              </a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#" data-lang="OnePunkt">
+                Home
+              </a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#" data-lang="TwoPunkt">
+                Works
+              </a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#" data-lang="FrePunkt">
+                Skills
+              </a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#" data-lang="ForPunkt">
+                Resume
+              </a>
+            </li>
+            <li class="menu__list-item">
+              <a class="menu__list-link" href="#" data-lang="FifePunkt">
+                Contact
+              </a>
+            </li>
+          </ul>
+          <ul class="menu__list menu-right">
+            <li class="menu__list-item">
+              <button class="header__btn header__btn-active" data-btn="ua">
+                <span class="button_top" data-lang="SexPunkt"> UA
+                </span>
+              </button>
+            </li>
+            <li class="menu__list-item ">
+              <button class="header__btn header__btn-active" data-btn="en">
+                <span class="button_top" data-lang="SevenPunkt"> EN
+                </span>
+              </button>
+            </li>
+            <li class="menu__list-item">
 
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              <img class="logo" id="myImage" src="images/github_light.png" alt="GitHub">
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              Home
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              Works
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              Skills
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              Resume
-            </a>
-          </li>
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              Contact
-            </a>
-          </li>
-        </ul>
-        <ul class="menu__list menu-right">
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="#">
-              EN/UA
-            </a>
-          </li>
-          <li class="menu__list-item">
+              <label class="switch">
+                <input class="themetoggle" id="myButton" type="checkbox" onchange="changeTheme(this.checked)">
+                <span class="slider"></span>
+              </label>
 
-            <label class="switch">
-              <input class="themetoggle" id="myButton" type="checkbox" onchange="changeTheme(this.checked)">
-              <span class="slider"></span>
-            </label>
+            </li>
+          </ul>
+        </nav>
 
-          </li>
-        </ul>
-      </nav>
+      </div>
+    </header>
 
-  </div>
-  </header>
-  <div class="container">
     <main>
 
       <section class="">

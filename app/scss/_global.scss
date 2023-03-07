@@ -1,8 +1,13 @@
 html,
 body {
   height: 100%;
+
   background-color: #eee;
+
+
   font-family: 'Ubuntu', sans-serif;
+  background-color: var(--var-bgcolor);
+  color: var(--var-fontcolor);
 }
 
 .wrapper {
@@ -20,7 +25,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 15px;
 }
