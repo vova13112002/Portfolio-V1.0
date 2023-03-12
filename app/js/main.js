@@ -50,53 +50,50 @@ function changeTheme(isChecked) {
 
 //Зміна мови
 
-// const allLangs = ['en', 'ua'];
-// let currentLang = 'en';
-// const langButtons = document.querySelectorAll('data-btn');
+const allLangs = ['en', 'ua'];
+let currentLang = 'en';
+const langButtons = document.querySelectorAll('data-btn');
 
-// const currentPathName = window.location.pathname;
-// let currentTexts = {};
+const currentPathName = window.location.pathname;
+let currentTexts = {};
 
+function checkPagePathName() {
+  switch (currentPathName) {
+    case "/index.html":
+      currentTexts = homeTexts;
+      break;
+    default:
+      currentTexts = homeTexts;
+      break;
+  }
+}
+checkPagePathName();
 
+function changeLang() {
+  for (const key in currentTexts) {
+    let elem = document.querySelector(`[data-lang=${key}]`);
+    if (elem) {
+      elem.textContent = currentTexts[key][currentLang];
+    }
+  }
 
-// function checkPagePathName() {
-//   switch (currentPathName) {
-//     case "/index.html":
-//       currentTexts = homeTexts;
-//       break;
-//     default:
-//       currentTexts = homeTexts;
-//       break;
-//   }
-// }
-// checkPagePathName();
+}
+changeLang();
 
-// function changeLang() {
-//   for (const key in currentTexts) {
-//     let elem = document.querySelector(`[data-lang=${key}]`);
-//     if (elem) {
-//       elem.textContent = currentTexts[key][currentLang];
-//     }
-//   }
+langButtons.forEach(btn => {
+  btn.addEventListener("click", (event) => {
+    currentLang = event.target.dataset.btn;
+    resetActiveClass(langButtons, 'header__btn ');
+    btn.classList.add('');
+    changeLang();
+  })
+})
 
-// }
-// changeLang();
-
-// langButtons.forEach(btn => {
-//   btn.addEventListener("click", (event) => {
-//     currentLang = event.target.dataset.btn;
-//     resetActiveClass(langButtons, 'header__btn ');
-//     btn.classList.add('');
-//     changeLang();
-//   })
-// })
-
-// function resetActiveClass(arr, activeClass) {
-//   arr.forEach(elem => {
-//     elem.classList.remove(activeClass)
-//   })
-// }
-
+function resetActiveClass(arr, activeClass) {
+  arr.forEach(elem => {
+    elem.classList.remove(activeClass)
+  })
+}
 
 const allLangs = ["en", "ua"];
 let currentLang = "en";
@@ -176,3 +173,4 @@ function resetActiveClass(arr, activeClass) {
     elem.classList.remove(activeClass);
   })
 }
+
