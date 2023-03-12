@@ -206,9 +206,6 @@
   border: none;
   border-radius: var(--button_radius);
   background: var(--button_outline_color);
-}
-
-.button_top {
   display: block;
   box-sizing: border-box;
   border: 2px solid var(--button_outline_color);
@@ -220,12 +217,14 @@
   transition: transform 0.1s ease;
 }
 
-.header__btn:hover .button_top {
+.button_top {}
+
+.header__btn:hover {
   /* Pull the button upwards when hovered */
   transform: translateY(-0.33em);
 }
 
-.header__btn:active .button_top {
+.header__btn:active {
   /* Push the button downwards when pressed */
   transform: translateY(0);
 }

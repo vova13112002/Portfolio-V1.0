@@ -24,6 +24,18 @@ const addDarkClassToHTML = () => {
       document.querySelector('html').classList.remove('dark');
     }
 
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      isDarkTheme = true;
+      // Оновлюємо відображення кнопки переключення теми
+      document.getElementById("myImage").src = "images/github_light.png";
+      document.querySelector('.themetoggle span').textContent = 'light_mode';
+    } else {
+      isDarkTheme = false;
+      // Оновлюємо відображення кнопки переключення теми
+      document.getElementById("myImage").src = "images/github.svg";
+      document.querySelector('.themetoggle span').textContent = 'dark_mode';
+    }
+
   } catch (err) { }
 }
 
@@ -48,13 +60,14 @@ function changeTheme(isChecked) {
   }
 }
 
+
 //Зміна мови
 
 const langButtons = document.querySelectorAll("[data-btn]");
 const allLangs = ["ua", "en",];
 const currentPathName = window.location.pathname;
 let currentLang =
-  localStorage.getItem("language") || checkBrowserLang() || "ua";
+  localStorage.getItem("language") || checkBrowserLang() || "en";
 let currentTexts = {};
 
 const homeTexts = {
@@ -91,36 +104,36 @@ const homeTexts = {
 
   "home_page-6": {
     ua: "Англійська",
-    en: "EN",
+    en: "English",
 
   }, "home_page-7": {
     ua: "Українська",
-    en: "UA",
+    en: "Ukrainian",
 
   },
 };
-const anotherTexts = {
-  "another_page-title": {
-    ua: "",
-    en: "",
-  },
-  "another_page-1": {
-    ua: "",
-    en: "",
-  },
-  "another_page-2": {
-    Uint16Array: "",
-    en: "",
-  },
-  "another_page-3": {
-    ua: "",
-    en: "",
-  },
-  "another_page-4": {
-    ua: "",
-    en: "",
-  },
-};
+// const anotherTexts = {
+//   "another_page-title": {
+//     ua: "",
+//     en: "",
+//   },
+//   "another_page-1": {
+//     ua: "",
+//     en: "",
+//   },
+//   "another_page-2": {
+//     Uint16Array: "",
+//     en: "",
+//   },
+//   "another_page-3": {
+//     ua: "",
+//     en: "",
+//   },
+//   "another_page-4": {
+//     ua: "",
+//     en: "",
+//   },
+// };
 
 // Проверка пути страницы сайта
 function checkPagePathName() {
@@ -128,9 +141,9 @@ function checkPagePathName() {
     case "/index.html":
       currentTexts = homeTexts;
       break;
-    case "/another_page.html":
-      currentTexts = anotherTexts;
-      break;
+    // case "/another_page.html":
+    //   currentTexts = anotherTexts;
+    //   break;
 
     default:
       currentTexts = homeTexts;
@@ -186,7 +199,7 @@ function checkActiveLangButton() {
 
     default:
       document
-        .querySelector('[data-btn="ua"]')
+        .querySelector('[data-btn="en"]')
         .classList.add("header__btn_active");
       break;
   }
