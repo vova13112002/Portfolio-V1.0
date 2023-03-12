@@ -1,3 +1,5 @@
+// const { active } = require("browser-sync");
+
 //Зміна теми
 document.querySelector('.themetoggle').addEventListener('click', (event) => {
   // event.preventDefault();
@@ -48,87 +50,129 @@ function changeTheme(isChecked) {
 
 //Зміна мови
 
-const allLangs = ['en', 'ua'];
-let currentLang = 'en';
-const langButtons = document.querySelectorAll('data-btn');
+// const allLangs = ['en', 'ua'];
+// let currentLang = 'en';
+// const langButtons = document.querySelectorAll('data-btn');
 
+// const currentPathName = window.location.pathname;
+// let currentTexts = {};
+
+
+
+// function checkPagePathName() {
+//   switch (currentPathName) {
+//     case "/index.html":
+//       currentTexts = homeTexts;
+//       break;
+//     default:
+//       currentTexts = homeTexts;
+//       break;
+//   }
+// }
+// checkPagePathName();
+
+// function changeLang() {
+//   for (const key in currentTexts) {
+//     let elem = document.querySelector(`[data-lang=${key}]`);
+//     if (elem) {
+//       elem.textContent = currentTexts[key][currentLang];
+//     }
+//   }
+
+// }
+// changeLang();
+
+// langButtons.forEach(btn => {
+//   btn.addEventListener("click", (event) => {
+//     currentLang = event.target.dataset.btn;
+//     resetActiveClass(langButtons, 'header__btn ');
+//     btn.classList.add('');
+//     changeLang();
+//   })
+// })
+
+// function resetActiveClass(arr, activeClass) {
+//   arr.forEach(elem => {
+//     elem.classList.remove(activeClass)
+//   })
+// }
+
+
+const allLangs = ["en", "ua"];
+let currentLang = "en";
+const langButtons = document.querySelectorAll("[data-btn]");
 const currentPathName = window.location.pathname;
-let currentTexts = {};
-
+let currentText = {}
 const homeTexts = {
-  'home__page-title': {
+  'home_page-title': {
     en: "Portfolio",
-    ua: "Портфоліо"
+    ua: "Портфоліо",
   },
-  'OnePunkt': {
+  'One-Punkt': {
     en: "Home",
-    ua: "Головна"
+    ua: "Головна",
   },
   'TwoPunkt': {
     en: "Works",
-    ua: "Роботи"
+    ua: "Роботи",
   },
   'FrePunkt': {
     en: "Skills",
-    ua: "Вміння"
+    ua: "Вміння",
   },
   'ForPunkt': {
     en: "Resume",
-    ua: "Резюме"
+    ua: "Резюме",
   },
   'FifePunkt': {
     en: "Contact",
-    ua: "Контакти"
+    ua: "Контакти",
   },
   'SexPunkt': {
     en: "EN",
-    ua: "Англійська"
+    ua: "Англійська",
   },
   'SevenPunkt': {
     en: "UA",
-    ua: "Українська"
-  }
+    ua: "Українська",
+  },
 
-}
+};
 
 function checkPagePathName() {
   switch (currentPathName) {
-    case "/index.html":
-      currentTexts = homeTexts;
+    case '/index.hmtl':
+      currentText = homeTexts;
       break;
     case "/another_page.html":
-      currentTexts = anotherTexts;
+      currentText = anotherTexts;
       break;
-
     default:
-      currentTexts = homeTexts;
+      currentLang = homeTexts;
       break;
   }
 }
 checkPagePathName();
-
 function changeLang() {
-  for (const key in currentTexts) {
-    let elem = document.querySelector(`[data-lang=${key}]`);
+  for (const key in currentText) {
+    const elem = document.querySelector(`[data-lang=${key}]`);
     if (elem) {
-      elem.textContent = currentTexts[key][currentLang];
+      elem.textContent = currentText[key][currentLang];
     }
   }
-
 }
 changeLang();
 
-langButtons.forEach(btn => {
+langButtons.forEach((btn) => {
   btn.addEventListener('click', (event) => {
     currentLang = event.target.dataset.btn;
-    resetActiveClass(langButtons, 'header__btn ');
-    btn.classList.add('');
+    resetActiveClass(langButtons, 'header__btn_active');
+    btn.classList.add("header__btn_active");
     changeLang();
-  })
+  });
 })
-
 function resetActiveClass(arr, activeClass) {
-  arr.forEach(elem => {
-    elem.classList.remove(activeClass)
+  arr.forEach((elem) => {
+    elem.classList.remove(activeClass);
   })
 }
